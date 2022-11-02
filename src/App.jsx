@@ -2,13 +2,17 @@ import { useState, useEffect } from "react";
 
 function App() {
   const [quote, setQuote] = useState([]);
+  // useState is set to epmty array to initialize state
   const [render, setRender] = useState(0);
+   // useState is set to 0 as typeOf render will be a number
 
   useEffect(() => {
     fetch(`https://programming-quotes-api.herokuapp.com/Quotes/random`)
       .then((res) => res.json())
       .then((data) => setQuote(data));
   }, [render]);
+    // render in dependency array so when called will rerender and provide a new quote
+    // Math.random is called in render button so change state of render and rerender the page
 
   return (
     <div className="main-container">
