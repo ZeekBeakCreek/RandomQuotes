@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 
 function App() {
   const [quote, setQuote] = useState([]);
-  const [randomNumber, setRandomNumber] = useState(0);
+  const [render, setRender] = useState(0);
 
   useEffect(() => {
     fetch(`https://programming-quotes-api.herokuapp.com/Quotes/random`)
       .then((res) => res.json())
       .then((data) => setQuote(data));
-  }, [randomNumber]);
+  }, [render]);
 
   return (
     <div className="main-container">
@@ -22,7 +22,7 @@ function App() {
         <button
           className="new-quote-button"
           onClick={() => {
-            setRandomNumber(Math.random());
+            setRender(Math.random());
           }}
         >
           New Quote
